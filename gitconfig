@@ -5,6 +5,4 @@
         cm = !git add -A && git commit -am
         res = reset --hard HEAD
 [color]
-  ui = auto
-
-
+	ui = auto
