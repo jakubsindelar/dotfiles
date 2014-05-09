@@ -6,11 +6,6 @@ RED="\[\e[0;31m\]"
 GREY="\[\e[0;36m\]"
 WHITE="\[\e[00m\]"
 
-#if [[ $S -eq 0 ]]; then
-#        DOLLAR="${GREEN}\$"
-#else
-#        DOLLAR="${RED}\$"
-#fi
 
 export PROMPT_COMMAND='
 	GITBRANCH=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
@@ -41,10 +36,4 @@ case $TERM in
         ;;
 esac
 
-alias ls='ls -F'
-alias la='ls -laF'
-alias rmr='rm -rf'
-alias rs='rsync -av --delete'
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
