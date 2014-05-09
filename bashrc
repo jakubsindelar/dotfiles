@@ -21,7 +21,7 @@ export PROMPT_COMMAND='
 	fi
 '
 
-export EDITOR="vim"
+export EDITOR="nano"
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
 export GREP_OPTIONS='--color=auto'
@@ -36,4 +36,4 @@ case $TERM in
         ;;
 esac
 
-
+PROMPT_COMMAND="source $HOME/configs/.prompt.sh"

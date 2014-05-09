@@ -1,0 +1,36 @@
+Host hom
+Hostname heroesofmemory.eu
+User fanatik
+Port 22
+KeepAlive yes
+Compression yes
+
+Host goa
+Hostname 192.168.1.99
+User kakashi
+Port 22
+KeepAlive yes
+Compression yes
+
+Host goaremote
+Hostname 10.10.10.15
+User kakashi
+Port 22
+KeepAlive yes
+Compression yes
+
+Host router
+Hostname home.heroesofmemory.eu
+User root
+Port 22
+KeepAlive yes
+Compression yes
+
+
+Host dev
+Hostname 192.168.32.131
+User root
+Port 22
+KeepAlive yes
+Compression yes
+
