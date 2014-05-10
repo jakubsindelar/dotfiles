@@ -7,20 +7,6 @@ GREY="\[\e[0;36m\]"
 WHITE="\[\e[00m\]"
 
 
-export PROMPT_COMMAND='
-	GITBRANCH=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
-	GITTAG=$(git describe --tags 2> /dev/null)
-	if [ "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)" != "" ]; then
-		if git diff-index --quiet HEAD --; then
-		    export PS1="${YELLOW}\u${GREEN}@${RED}\h${BLUE}: ${PURPLE}\w ${GREEN}|${YELLOW}${GITBRANCH}${GREEN}|${YELLOW}${GITTAG}\n${GREY}\$ ${WHITE}"
-		else
-		    export PS1="${YELLOW}\u${GREEN}@${RED}\h${BLUE}: ${PURPLE}\w ${RED}*${GREEN}|${YELLOW}${GITBRANCH}${GREEN}|${YELLOW}${GITTAG}\n${GREY}\$ ${WHITE}"
-		fi
-	else
-		export PS1="${YELLOW}\u${GREEN}@${RED}\h${BLUE}: ${PURPLE}\w\n${GREY}\$ ${WHITE}"
-	fi
-'
-
 export EDITOR="nano"
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad

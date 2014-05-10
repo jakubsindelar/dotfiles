@@ -18,7 +18,21 @@ else
 fi
 
 #obsah
-PS1="${CYAN}\u${END}${WHITE}@${END}${RED}\h${END}${GREEN}\w${END}${DOLLAR}${END} "
+export PROMPT_COMMAND='
+  GITBRANCH=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+  GITTAG=$(git describe --tags 2> /dev/null)
+  if [ "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)" != "" ]; then
+    if git diff-index --quiet HEAD --; then
+        export PS1="${CYAN}\u${END}${WHITE}@${END}${RED}\h${END}${GREEN}\w${END}${DOLLAR} ${YELLOW}${GITBRANCH} ${END}"
+    else
+        export PS1="${CYAN}\u${END}${WHITE}@${END}${RED}\h${END}${GREEN}\w${END}${DOLLAR} ${RED}*${YELLOW}${GITBRANCH} ${END}"
+    fi
+  else
+    export PS1="${CYAN}\u${END}${WHITE}@${END}${RED}\h${END}${GREEN}\w${END}${DOLLAR}${END} "
+  fi
+'
+
+
 #alias
 alias dev='cd ~/dev/fiktivni_firma'
 alias rmr='rm -Rf'
