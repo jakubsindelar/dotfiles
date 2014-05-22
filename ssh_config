@@ -13,7 +13,7 @@ KeepAlive yes
 Compression yes
 
 Host goaremote
-Hostname 10.10.10.15
+Hostname 10.10.10.2
 User kakashi
 Port 22
 KeepAlive yes
@@ -33,4 +33,12 @@ User root
 Port 22
 KeepAlive yes
 Compression yes
+
+Host gimbo
+Hostname 10.10.10.10
+User marek
+Port 22
+KeepAlive yes
+Compression yes
+
 
