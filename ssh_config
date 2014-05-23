@@ -42,3 +42,9 @@ KeepAlive yes
 Compression yes
 
 
+Host rpi
+Hostname 10.10.10.9
+User pi
+Port 22
+KeepAlive yes
+Compression yes
