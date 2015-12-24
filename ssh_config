@@ -1,26 +1,5 @@
-Host hom
-Hostname heroesofmemory.eu
-User fanatik
-Port 22
-KeepAlive yes
-Compression yes
-
-Host goa
-Hostname 192.168.1.99
-User kakashi
-Port 22
-KeepAlive yes
-Compression yes
-
-Host goaremote
-Hostname 10.10.10.2
-User kakashi
-Port 22
-KeepAlive yes
-Compression yes
-
 Host router
-Hostname home.heroesofmemory.eu
+Hostname 192.168.0.1
 User root
 Port 22
 KeepAlive yes
@@ -28,22 +7,14 @@ Compression yes
 
 
 Host dev
-Hostname 192.168.32.131
-User root
+Hostname 192.168.56.2
+User fanatik
 Port 22
 KeepAlive yes
 Compression yes
-
-Host gimbo
-Hostname 10.10.10.10
-User marek
-Port 22
-KeepAlive yes
-Compression yes
-
 
 Host rpi
-Hostname 10.10.10.9
+Hostname 192.168.0.104
 User pi
 Port 22
 KeepAlive yes

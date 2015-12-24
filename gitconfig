@@ -1,6 +1,6 @@
 [user]
          name = jakubsindelar
-         email = github@heroesofmemory.eu
+         email = j.sindelar01@gmail.com
 [alias]
         cm = !git add -A && git commit -am
         res = reset --hard HEAD
