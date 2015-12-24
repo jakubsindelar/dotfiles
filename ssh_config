@@ -19,3 +19,10 @@ User pi
 Port 22
 KeepAlive yes
 Compression yes
+
+Host vps
+Hostname jsindelar.cz
+User fanatik
+Port 22
+KeepAlive yes
+Compression yes
