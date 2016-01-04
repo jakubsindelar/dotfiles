@@ -4,5 +4,6 @@
 [alias]
         cm = !git add -A && git commit -am
         res = reset --hard HEAD
+	ch = !git checkout
 [color]
 	ui = auto
