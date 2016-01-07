@@ -17,6 +17,8 @@ else
         DOLLAR="${RED}#"
 fi
 
+
+
 # Based on: https://github.com/jimeh/git-aware-prompt
 find_git_branch() {
   # Based on: http://stackoverflow.com/a/13003854/170413
@@ -41,7 +43,7 @@ find_git_tag() {
 find_git_dirty() {
   local status=$(git status --porcelain 2> /dev/null)
   if [[ "$status" != "" ]]; then
-    git_dirty="'"
+    git_dirty="*"
   else
     git_dirty=""
   fi
@@ -50,11 +52,10 @@ find_git_dirty() {
 PROMPT_COMMAND="find_git_branch; find_git_tag; find_git_dirty; $PROMPT_COMMAND"
 
 if [ "$myPrimaryDevice" == 1 ]; then
-  export PS1="\[\e]0;$USER@macbook:`basename $PWD`\007\]\u@macbook:\w\$git_branch\$git_tag\$git_dirty$ "
+  export PS1="$USER@macbook:`basename $PWD\u@macbook:\w\$git_branch\$git_tag\${CYAN}$git_dirty${CYAN}$ "
 else
   export PS1="\[\e]0;$USER@`hostname -s`:`basename $PWD`\007\]\u@\h:\w\$git_branch\$git_tag\$git_dirty$ "
 fi
-
 #obsah
 #PS1="${CYAN}\u${END}${WHITE}@${END}${RED}\h${END}${GREEN}\w${END}${DOLLAR}${END} "
 #alias
