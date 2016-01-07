@@ -7,7 +7,7 @@ Compression yes
 
 
 Host dev
-Hostname 192.168.56.2
+Hostname 192.168.56.3
 User fanatik
 Port 22
 KeepAlive yes
