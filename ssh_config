@@ -5,10 +5,9 @@ Port 22
 KeepAlive yes
 Compression yes
 
-
 Host dev
-Hostname 192.168.56.3
-User fanatik
+Hostname  192.168.56.3
+User root
 Port 22
 KeepAlive yes
 Compression yes
@@ -26,3 +25,40 @@ User fanatik
 Port 22
 KeepAlive yes
 Compression yes
+
+Host test
+Hostname 192.168.56.2
+User fanatik
+Port 22
+KeepAlive yes
+Compression yes
+
+Host rpiv
+Hostname rpi.vpn.jsindelar.cz
+User pi
+Port 22
+KeepAlive yes
+Compression yes
+
+Host home
+Hostname home.jsindelar.cz
+User root
+Port 22
+KeepAlive yes
+Compression yes
+
+Host routerv
+Hostname router.vpn.jsindelar.cz
+User root
+Port 22
+KeepAlive yes
+Compression yes
+
+
+Host devn
+Hostname 10.211.55.3
+User root
+Port 22
+KeepAlive yes
+Compression yes
+
