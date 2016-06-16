@@ -7,9 +7,9 @@ makelink() {
 	chmod -f $3 $2;
 }
 # ssh
-makelink $HOME/configs/authorized_keys $HOME/.ssh/authorized_keys 700
-makelink $HOME/configs/ssh_config $HOME/.ssh/config 700
+makelink $HOME/.configs/authorized_keys $HOME/.ssh/authorized_keys 700
+makelink $HOME/.configs/ssh_config $HOME/.ssh/config 700
 # bash
-makelink $HOME/configs/bashrc $HOME/.bashrc 770
+makelink $HOME/.configs/bashrc $HOME/.bashrc 770
 # git
-makelink $HOME/configs/gitconfig $HOME/.gitconfig 750
+makelink $HOME/.configs/gitconfig $HOME/.gitconfig 750
