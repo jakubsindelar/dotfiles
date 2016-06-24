@@ -49,13 +49,13 @@ find_git_dirty() {
   fi
 }
 
-PROMPT_COMMAND="find_git_branch; find_git_tag; find_git_dirty; $PROMPT_COMMAND"
+#PROMPT_COMMAND="find_git_branch; find_git_tag; find_git_dirty; $PROMPT_COMMAND"
 
-if [ "$myPrimaryDevice" == 1 ]; then
-  export PS1="$USER@macbook:`basename $PWD\u@macbook:\w\$git_branch\$git_tag\${CYAN}$git_dirty${CYAN}$ "
-else
-  export PS1="\[\e]0;$USER@`hostname -s`:`basename $PWD`\007\]\u@\h:\w\$git_branch\$git_tag\$git_dirty$ "
-fi
+#if [ "$myPrimaryDevice" == 1 ]; then
+ # export PS1="$USER@macbook:`basename $PWD\u@macbook:\w\$git_branch\$git_tag\${CYAN}$git_dirty${CYAN}$ "
+#else
+ # export PS1="\[\e]0;$USER@`hostname -s`:`basename $PWD`\007\]\u@\h:\w\$git_branch\$git_tag\$git_dirty$ "
+#fi
 #obsah
 #PS1="${CYAN}\u${END}${WHITE}@${END}${RED}\h${END}${GREEN}\w${END}${DOLLAR}${END} "
 #alias
