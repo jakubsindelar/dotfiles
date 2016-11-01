@@ -1,7 +1,7 @@
 #Encoging
 export MM_CHARSET=utf8
 export LC_ALL=C
-export LANG=en_US.UTF-8
+export LANG=en_GB.UTF-8
 #Main Editor
 export EDITOR="nano"
 export CLICOLOR=1
