@@ -66,8 +66,8 @@ Port 22
 KeepAlive yes
 Compression yes
 
-#PT-CZ
-Host PT-CZ VIA VPN
+#PT-CZ VIA VPN
+Host ptczv
 Hostname 10.10.10.15
 User pi
 Port 22
@@ -75,7 +75,7 @@ KeepAlive yes
 Compression yes
 
 #PT-CZ
-Host PT-CZ
+Host ptcz
 Hostname 10.0.0.4 
 User pi
 Port 22
