@@ -1,83 +1,136 @@
-## OUTDOR SERVERS
-
-# HOME ROUTER
-Host home
-Hostname home.jsindelar.cz
-User root
-Port 22
-KeepAlive yes
 Compression yes
+#vic sessions v jednom spojeni
+ControlMaster auto
+#socket pro controlmaster
+ControlPath /tmp/ssh_%r@%h:%p
+#doba od zavreni posledni session po kterou je socket otevreny
+ControlPersist 86400
+ServerAliveInterval 5
+ServerAliveCountMax 12
+#netunelovat na server privatni klic
+ForwardAgent no
+#security advice
+UseRoaming no
 
-#RPI VIA VPN
-Host rpiv
-Hostname rpi.vpn.jsindelar.cz
-User pi
-Port 22
-KeepAlive yes
-Compression yes
-
-#ROUTER VIA VPN
-Host routerv
-Hostname router.vpn.jsindelar.cz
-User root
-Port 22
-KeepAlive yes
-Compression yes
-
-#FANATIK-VPS
-Host vps
-Hostname jsindelar.cz
-User fanatik
-Port 22
-KeepAlive yes
-Compression yes
-
-#PRIVAT SERVERS
+Include ~/.ssh/plus4unet.config
 
 #HOME ROUTER
-Host router
-Hostname 192.168.0.1
-User root
-Port 22
-KeepAlive yes
-Compression yes
-
-#DEVELOPER SERVER - VIRTUALBOX
-Host dev
-Hostname  192.168.56.3
-User fanatik
-Port 22
-KeepAlive yes
-Compression yes
-
-#DEVELOPER SERVER ROOT VIRTUALBOX
-Host devr
-Hostname  192.168.56.3
-User root
-Port 22
-KeepAlive yes
-Compression yes
+  Host router
+    Hostname 2a03:3b40:200::288
+    User root
+    Port 22
+		KeepAlive yes
+	  Compression yes
 
 #RPI
-Host rpi
-Hostname 192.168.0.104
-User pi
-Port 22
-KeepAlive yes
-Compression yes
-
-#PT-CZ VIA VPN
-Host ptczv
-Hostname 10.10.10.15
-User pi
-Port 22
-KeepAlive yes
-Compression yes
+  Host rpi
+    Hostname 2a03:3b40:288::104
+    User pi
+    Port 22
+    KeepAlive yes
+    Compression yes
 
 #PT-CZ
-Host ptcz
-Hostname 10.0.0.4 
-User pi
-Port 22
-KeepAlive yes
-Compression yes
+  Host ptcz
+    Hostname 2a03:3b40:fe:65::4
+    User fanatik
+    Port 22
+    KeepAlive yes
+
+#Lada-RPI
+  Host insomnia
+    Hostname 2a03:3b40:fe:65::6
+    User fanatik
+    Port 1022
+    KeepAlive yes
+    Compression yes
+
+
+#Strahov shell
+  Host sh
+    Hostname shell.sh.cvut.cz
+    User j.sindelar01
+    Port 22
+    KeepAlive yes
+    Compression yes
+    PasswordAuthentication yes
+
+#Strahov Inventory
+  Host sh.inventory
+    Hostname inventar.sh.cvut.cz
+    User jsindelar01
+    Port 22
+    KeepAlive yes
+    Compression yes
+    PasswordAuthentication yes
+
+#Strahov Inventory-beta
+  Host sh.inventory.beta
+    Hostname beta.inventar.sh.cvut.cz
+    User jsindelar01
+    Port 22
+    KeepAlive yes
+    Compression yes
+    PasswordAuthentication yes
+
+#BigClown
+  Host bc
+    Hostname 2001:1ae9:225:5f00::105
+    User pi
+    Port 22
+    KeepAlive yes
+    Compression yes
+    PasswordAuthentication yes
+
+#SH#VPS#PROAKTIVNI
+  Host sh.vps
+    Hostname 147.32.30.27
+    User fanatik
+    Port 22
+    KeepAlive yes
+    Compression yes
+    PasswordAuthentication yes
+
+#Contabo
+  Host contabo
+     Hostname 173.249.18.159
+     User fanatik
+     Port 22
+     ForwardAgent yes
+     KeepAlive yes
+     Compression yes
+     PasswordAuthentication yes
+
+#WD-Storageo
+  Host wd
+		Hostname 192.168.0.5 
+		User sshd
+		Port 22
+		KeepAlive yes
+		Compression yes
+		PasswordAuthentication yes
+
+#Malina
+  Host malina 
+		Hostname 192.168.0.152
+		User pi
+		Port 22
+		KeepAlive yes
+		Compression yes
+		PasswordAuthentication yes
+
+  Host moon
+		Hostname 192.168.0.136 
+		User pi
+		Port 22 
+		KeepAlive yes
+		Compression yes
+		PasswordAuthentication yes
+
+  Host vpsfree
+		Hostname 37.205.14.56
+		User fanatik
+		Port 22 
+		KeepAlive yes
+		Compression yes
+		PasswordAuthentication no
