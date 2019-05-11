@@ -19,16 +19,28 @@ Include ~/.ssh/plus4unet.config
     Hostname 2a03:3b40:200::288
     User root
     Port 22
-		KeepAlive yes
-	  Compression yes
+    KeepAlive yes
+    Compression yes
+    ProxyCommand ssh -q -W %h:%p contabo
 
 #RPI
   Host rpi
-    Hostname 2a03:3b40:288::104
+    Hostname 192.168.0.104
     User pi
     Port 22
     KeepAlive yes
     Compression yes
+    ProxyCommand ssh -q -W %h:%p vpsfree
+
+#RPI-HomeBridge
+  Host homebridge
+    Hostname 192.168.0.139
+    User pi
+    Port 22
+    KeepAlive yes
+    Compression yes
+    ProxyCommand ssh -q -W %h:%p vpsfree
+
 
 #PT-CZ
   Host ptcz
@@ -39,11 +51,14 @@ Include ~/.ssh/plus4unet.config
 
 #Lada-RPI
   Host insomnia
-    Hostname 2a03:3b40:fe:65::6
+    Hostname 172.27.1.6
+    #Hostname 192.168.0.187
     User fanatik
-    Port 1022
+    #User pi
+    Port 22
     KeepAlive yes
     Compression yes
+    ProxyCommand ssh -q -W %h:%p vpsfree
 
 
 #Strahov shell
@@ -103,34 +118,70 @@ Include ~/.ssh/plus4unet.config
 
 #WD-Storageo
   Host wd
-		Hostname 192.168.0.5 
-		User sshd
-		Port 22
-		KeepAlive yes
-		Compression yes
-		PasswordAuthentication yes
+    Hostname 192.168.0.5
+    User sshd
+    Port 22
+    KeepAlive yes
+    Compression yes
+    PasswordAuthentication yes
+    ProxyCommand ssh -q -W %h:%p vpsfree
 
 #Malina
-  Host malina 
-		Hostname 192.168.0.152
-		User pi
-		Port 22
-		KeepAlive yes
-		Compression yes
-		PasswordAuthentication yes
+  Host malina
+    Hostname 192.168.0.152
+    User pi
+    Port 22
+    KeepAlive yes
+    Compression yes
+    PasswordAuthentication yes
 
   Host moon
-		Hostname 192.168.0.136 
-		User pi
-		Port 22 
-		KeepAlive yes
-		Compression yes
-		PasswordAuthentication yes
+    Hostname 192.168.0.9
+    User pi
+    Port 22
+    KeepAlive yes
+    Compression yes
+    PasswordAuthentication yes
 
   Host vpsfree
-		Hostname 37.205.14.56
-		User fanatik
-		Port 22 
-		KeepAlive yes
-		Compression yes
-		PasswordAuthentication no
+    Hostname 37.205.14.56
+    User fanatik
+    Port 22
+    KeepAlive yes
+    Compression yes
+
+  Host installfest
+    Hostname php.sh.cvut.cz
+    User  installfest
+    Port 22
+    KeepAlive yes
+    Compression yes
+    PasswordAuthentication no
+
+Host homebridge
+    Hostname 192.168.0.152
+    User pi
+    Port 22
+    KeepAlive yes
+    Compression yes
+    PasswordAuthentication no
+Host dtc-rpi
+  Hostname 172.27.1.9
+  User fanatik
+  Port 22
+  KeepAlive yes
+  Compression yes
+  PasswordAuthentication no
+  ProxyCommand ssh -q -W %h:%p vpsfree
+
+#Working Mac
+  Host macpro
+    Hostname 192.168.10.98 
+    User fanatik 
+    Port 22
+    KeepAlive yes
+    Compression yes
+    PasswordAuthentication yes
+    ProxyCommand ssh -q -W %h:%p dtc-rpi
+
+
