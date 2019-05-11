@@ -1,0 +1,60 @@
+#!/usr/bin/env ruby
+require "optparse"
+require "fileutils"
+
+uu_home = ENV["UU_HOME"]
+uu_home = "~/.uu" if uu_home.nil?
+uu_home = File.expand_path(uu_home)
+
+options = {
+  envs: File.join(uu_home, "config", "uu-client"),
+  main_file: File.join(uu_home, "config", "uu-client.properties")
+}
+
+optparse = OptionParser.new do |opts|
+  opts.banner = <<BANNER
+Usage: #{__FILE__} [options] [environment]
+Set uu-client.properties for a particular environment or display the current one
+Arguments:
+    environment
+        The environment to set uu-client.properties for. List of available
+        environments can be displayed using the --list option.
+Options:
+BANNER
+
+  opts.on("-l", "--list", "Display list of available environments (in #{options[:envs]})") do
+    Dir.chdir(options[:envs]) do
+      envs = Dir.glob("*.properties").collect { |f| File.basename(f, ".properties") }
+      puts "Available environments:"
+      puts envs.join(" ")
+    end
+    exit
+  end
+
+  opts.on("-h", "--help", "Display this help") do
+    puts opts
+    exit
+  end
+end
+optparse.parse!
+
+if ARGV.empty?
+  # Display the current uu-client.properties
+  puts "Current environment (in #{options[:main_file]}):\n\n"
+  File.open(options[:main_file], "r") do |f|
+    puts f.read
+  end
+else
+  # Use ~/.uu/config/uu-client/#{requested_env}.properties or exit with error
+  requested_env = ARGV.first
+  source_file = File.join(options[:envs], "#{requested_env}.properties")
+  env_exists = File.file?(source_file)
+  if env_exists
+    FileUtils.cp(source_file, options[:main_file], preserve: false, noop: false, verbose: true)
+  else
+    puts "ERROR: Environment '#{requested_env}' does not exist"
+    puts "Use `#{File.basename(__FILE__)} --list` to list available environments"
+    exit 1
+  end
+end
+# vim: set ft=ruby

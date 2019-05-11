@@ -1,0 +1,23 @@
+#!/bin/bash
+ 
+app_uti="com.apple.finder"
+app_name="Finder"
+plistbool="AppleShowAllFiles"
+ 
+[ ! -e ~/Library/Preferences/${app_uti}.plist ] && { killall $app_name; exit 1; }
+ 
+invisibility_switch=`defaults read $app_uti $plistbool 2> /dev/null`
+ 
+if [ -z $invisibility_switch ]
+then
+    invisibility_switch="FALSE"
+fi
+ 
+if [ $invisibility_switch = "TRUE" ]
+then
+    defaults write $app_uti $plistbool FALSE
+else
+    defaults write $app_uti $plistbool TRUE
+fi     
+ 
+killall $app_name

@@ -1,0 +1,16 @@
+#!/bin/bash
+if [ -z $1 ]; then
+  echo "Please insert what would like to find"
+elif [ "$1" == "--help" ]; then
+  echo "Using:"
+echo "docker-clean \$1 (You can insert text or regexp)"
+else
+  while true; do
+    read -p "Do you wish to continue? (y/n):" yn
+    case $yn in
+        [Yy]* ) docker rmi $(docker images | grep "$1" | awk '{print $3}'); break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+fi

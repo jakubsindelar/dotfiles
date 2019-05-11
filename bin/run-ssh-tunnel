@@ -1,0 +1,2 @@
+#!/bin/bash
+autossh -M 20000 -f -N vpsfree -R 2022:localhost:22 -C

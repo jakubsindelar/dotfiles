@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ -z $1 ] ; then
+path="./"
+else
+path=$1
+fi
+found=$(find $path -name .DS_Store | wc -l)
+if [ $found == 0 ] ; then
+echo "Found $found results"
+else
+echo "Found $found results"
+rm $(find $path -name .DS_Store)
+echo "Deleted $found results."
+fi

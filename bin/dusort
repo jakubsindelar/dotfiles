@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ -z "$1" ]
+then
+      $1=$PWD
+fi
+du -hs $1/* | sort -rh | head -5

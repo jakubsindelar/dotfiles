@@ -1,0 +1,11 @@
+#!/bin/bash
+date=`date +%Y-%m-%d`
+backup_dir="~/Backups"
+echo $date
+echo $backup_dir
+create_dir ()
+{
+echo  "sdfd"
+}
+
+create_dir($date, $backup_dir, "ssh")
