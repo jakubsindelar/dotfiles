@@ -23,7 +23,7 @@ Include ~/.ssh/plus4unet.config
     Compression yes
     ProxyCommand ssh -q -W %h:%p vpsfree
 
-#RPI
+#APU
   Host apu 
     Hostname 192.168.0.104
     User fanatik 
@@ -35,6 +35,16 @@ Include ~/.ssh/plus4unet.config
 #WD-Storage
   Host wd
     Hostname 192.168.0.5
+    User sshd
+    Port 22
+    KeepAlive yes
+    Compression yes
+    PasswordAuthentication yes
+    ProxyCommand ssh -q -W %h:%p vpsfree
+
+#MacBook-Pro - HOME
+  Host macpro-home 
+    Hostname 192.168.0.8
     User sshd
     Port 22
     KeepAlive yes
