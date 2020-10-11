@@ -45,7 +45,7 @@ Include ~/.ssh/plus4unet.config
 #MacBook-Pro - HOME
   Host macpro-home 
     Hostname 192.168.0.8
-    User sshd
+    User fanatik 
     Port 22
     KeepAlive yes
     Compression yes
