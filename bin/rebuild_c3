@@ -1,14 +1,13 @@
 #!/bin/bash
 eval $(docker-machine env uucloud)
-SR_CMD=$1
-SR_SCRIPTS=$2
-DE_CMD=/Users/fanatik/Repository/Unicorn/"$C3_DIR"/uu_cloud-devenv/docker/c3/uu_c3-cmd.war
-DE_SCRIPTS=/Users/fanatik/Repository/Unicorn/"$C3_DIR"/uu_cloud-devenv/docker/c3/uu_c3-scripts.zip
-cp $SR_CMD $DE_CMD
-cp $SR_SCRIPTS $DE_SCRIPTS
 cd /Users/fanatik/Repository/Unicorn/"$C3_DIR"/uu_cloud-devenv/
+rake c3:cmd                    # Builds uuCloud Control Center command pack
+rake c3:scripts
+rake or:cmd
 docker-compose build
 rake uucloud:down uucloud:up 
 sleep 10
 rake uucloud:install
 ruby ~/Repository/Unicorn/my-scripts/create_asids_awids.rb 
+#ruby ~/Repository/Unicorn/my-scripts/create_asids_awids.rb 
+#docker service rm $(docker service ls -q)

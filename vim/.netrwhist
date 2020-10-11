@@ -1,0 +1,4 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/fanatik/.vim'
+let g:netrw_dirhist_1='/Users/fanatik/Repository/Unicorn/uu_cloudg01_c3-server-ruby/docker/uu_gateway_imgstore'

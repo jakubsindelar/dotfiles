@@ -1,0 +1,8 @@
+name: SH
+root: ~/
+
+windows:
+- Inventory: mosh inventory
+- SH.VPS: mosh sh.vps
+- SH.TERM: mosh sh
+

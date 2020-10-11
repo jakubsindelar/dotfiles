@@ -18,7 +18,7 @@ else
   while true; do
     read -p "Do you wish to continue? (y/n):" yn
     case $yn in
-        [Yy]* ) docker rmi $force $(docker images | grep "$1" | awk '{print $3}'); break;;
+        [Yy]* ) docker rmi $force $(docker images | grep "$3" | awk '{print $3}'); break;;
         [Nn]* ) exit;;
         * ) echo "Please answer yes or no.";;
   esac
