@@ -1,14 +1,4 @@
-#Encoging
-export MM_CHARSET=utf8
-export LC_ALL=C
-export LANG=en_GB.UTF-8
-#Main Editor
-export EDITOR="nano"
-export CLICOLOR=1
-export LSCOLORS=Exfxcxdxbxegedabagacad
-export GREP_OPTIONS='--color=auto'
-#No mail checking
-unset MAILCHECK
-source $HOME/.configs/prompt.sh
 
+[[ -f ~/.resh/shellrc ]] && source ~/.resh/shellrc # this line was added by RESH (Rich Enchanced Shell History)
 
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh # this line was added by RESH (Rich Enchanced Shell History)

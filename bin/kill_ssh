@@ -1,0 +1,5 @@
+#!/bin/bash
+get_ssh=$(ps ax | grep ssh | grep -v grep)
+echo $get_ssh
+PID=$($get_ssh | grep -v "/usr/bin/ssh-agent" | awk '{print $1}')
+echo $PID

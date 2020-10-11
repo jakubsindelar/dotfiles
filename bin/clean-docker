@@ -1,16 +1,26 @@
 #!/bin/bash
 if [ -z $1 ]; then
-  echo "Please insert what would like to find"
+  echo "Please insert what would like to find or run with --help for more options"
 elif [ "$1" == "--help" ]; then
   echo "Using:"
 echo "docker-clean \$1 (You can insert text or regexp)"
+echo "docker-clean \$2 (You can insert -f parameter for force remove images)"
+elif [ "$1" == "--rm-container" ];  then
+  if [ -z $2 ]; then
+    echo "Insert part of container name"
+  else
+    docker rm -f $(docker ps | grep "$2" | awk '{ print $1 }')
+  fi
 else
+  if [ "$2" == "-f"  ]; then
+  force=$2
+  fi
   while true; do
     read -p "Do you wish to continue? (y/n):" yn
     case $yn in
-        [Yy]* ) docker rmi $(docker images | grep "$1" | awk '{print $3}'); break;;
+        [Yy]* ) docker rmi $force $(docker images | grep "$1" | awk '{print $3}'); break;;
         [Nn]* ) exit;;
         * ) echo "Please answer yes or no.";;
-    esac
+  esac
 done
 fi

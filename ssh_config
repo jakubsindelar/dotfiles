@@ -16,107 +16,23 @@ Include ~/.ssh/plus4unet.config
 
 #HOME ROUTER
   Host router
-    Hostname 2a03:3b40:200::288
+    Hostname 192.168.0.1 
     User root
     Port 22
     KeepAlive yes
     Compression yes
-    ProxyCommand ssh -q -W %h:%p contabo
+    ProxyCommand ssh -q -W %h:%p vpsfree
 
 #RPI
-  Host rpi
+  Host apu 
     Hostname 192.168.0.104
-    User pi
+    User fanatik 
     Port 22
     KeepAlive yes
     Compression yes
     ProxyCommand ssh -q -W %h:%p vpsfree
 
-#RPI-HomeBridge
-  Host homebridge
-    Hostname 192.168.0.139
-    User pi
-    Port 22
-    KeepAlive yes
-    Compression yes
-    ProxyCommand ssh -q -W %h:%p vpsfree
-
-
-#PT-CZ
-  Host ptcz
-    Hostname 2a03:3b40:fe:65::4
-    User fanatik
-    Port 22
-    KeepAlive yes
-
-#Lada-RPI
-  Host insomnia
-    Hostname 172.27.1.6
-    #Hostname 192.168.0.187
-    User fanatik
-    #User pi
-    Port 22
-    KeepAlive yes
-    Compression yes
-    ProxyCommand ssh -q -W %h:%p vpsfree
-
-
-#Strahov shell
-  Host sh
-    Hostname shell.sh.cvut.cz
-    User j.sindelar01
-    Port 22
-    KeepAlive yes
-    Compression yes
-    PasswordAuthentication yes
-
-#Strahov Inventory
-  Host sh.inventory
-    Hostname inventar.sh.cvut.cz
-    User jsindelar01
-    Port 22
-    KeepAlive yes
-    Compression yes
-    PasswordAuthentication yes
-
-#Strahov Inventory-beta
-  Host sh.inventory.beta
-    Hostname beta.inventar.sh.cvut.cz
-    User jsindelar01
-    Port 22
-    KeepAlive yes
-    Compression yes
-    PasswordAuthentication yes
-
-#BigClown
-  Host bc
-    Hostname 2001:1ae9:225:5f00::105
-    User pi
-    Port 22
-    KeepAlive yes
-    Compression yes
-    PasswordAuthentication yes
-
-#SH#VPS#PROAKTIVNI
-  Host sh.vps
-    Hostname 147.32.30.27
-    User fanatik
-    Port 22
-    KeepAlive yes
-    Compression yes
-    PasswordAuthentication yes
-
-#Contabo
-  Host contabo
-     Hostname 173.249.18.159
-     User fanatik
-     Port 22
-     ForwardAgent yes
-     KeepAlive yes
-     Compression yes
-     PasswordAuthentication yes
-
-#WD-Storageo
+#WD-Storage
   Host wd
     Hostname 192.168.0.5
     User sshd
@@ -126,23 +42,6 @@ Include ~/.ssh/plus4unet.config
     PasswordAuthentication yes
     ProxyCommand ssh -q -W %h:%p vpsfree
 
-#Malina
-  Host malina
-    Hostname 192.168.0.152
-    User pi
-    Port 22
-    KeepAlive yes
-    Compression yes
-    PasswordAuthentication yes
-
-  Host moon
-    Hostname 192.168.0.9
-    User pi
-    Port 22
-    KeepAlive yes
-    Compression yes
-    PasswordAuthentication yes
-
   Host vpsfree
     Hostname 37.205.14.56
     User fanatik
@@ -150,38 +49,27 @@ Include ~/.ssh/plus4unet.config
     KeepAlive yes
     Compression yes
 
-  Host installfest
-    Hostname php.sh.cvut.cz
-    User  installfest
-    Port 22
-    KeepAlive yes
-    Compression yes
-    PasswordAuthentication no
-
-Host homebridge
-    Hostname 192.168.0.152
-    User pi
-    Port 22
-    KeepAlive yes
-    Compression yes
-    PasswordAuthentication no
-Host dtc-rpi
-  Hostname 172.27.1.9
-  User fanatik
-  Port 22
-  KeepAlive yes
-  Compression yes
-  PasswordAuthentication no
-  ProxyCommand ssh -q -W %h:%p vpsfree
-
-#Working Mac
-  Host macpro
-    Hostname 192.168.10.98 
+Host workrpi 
+    Hostname 172.27.1.9
     User fanatik 
     Port 22
     KeepAlive yes
     Compression yes
-    PasswordAuthentication yes
-    ProxyCommand ssh -q -W %h:%p dtc-rpi
+    PasswordAuthentication no
+    ProxyCommand ssh -q -W %h:%p vpsfree
 
-
+Host macair 
+    Hostname 192.168.0.191
+    User fanatik  
+    Port 22
+    KeepAlive yes
+    Compression yes
+    PasswordAuthentication no
+    ProxyCommand ssh -q -W %h:%p vpsfree
+Host sh.nas 
+    Hostname nas.pdostal.sh.cvut.cz
+    User fanatik  
+    Port 22
+    KeepAlive yes
+    Compression yes
+    PasswordAuthentication no 
