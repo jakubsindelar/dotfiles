@@ -5,6 +5,7 @@ elif [ "$1" == "--help" ]; then
   echo "Using:"
 echo "docker-clean \$1 (You can insert text or regexp)"
 echo "docker-clean \$2 (You can insert -f parameter for force remove images)"
+echo "docker-clean --rm-container (-f)"
 elif [ "$1" == "--rm-container" ];  then
   if [ -z $2 ]; then
     echo "Insert part of container name"
