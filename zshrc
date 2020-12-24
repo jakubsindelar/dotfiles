@@ -129,4 +129,4 @@ export PATH=$PATH:/opt/gradle/gradle-5.3/bin
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export DTC_RAKE_PASSWD="21-6164-1"
 export C3_DIR=c3-server
-[ -f ~/.resh/shellrc ] && source ~/.resh/shellrc # this line was added by RESH (Rich Enchanced Shell History)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
