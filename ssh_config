@@ -21,16 +21,16 @@ Include ~/.ssh/plus4unet.config
     Port 22
     KeepAlive yes
     Compression yes
-    ProxyCommand ssh -q -W %h:%p vpsfree
+    #ProxyCommand ssh -q -W %h:%p vpsfree
 
 #APU
   Host apu 
-    Hostname 192.168.0.4
+    Hostname 192.168.0.12
     User fanatik 
     Port 22
     KeepAlive yes
     Compression yes
-    ProxyCommand ssh -q -W %h:%p vpsfree
+    #ProxyCommand ssh -q -W %h:%p vpsfree
 
 #WD-Storage
   Host wd
@@ -76,6 +76,7 @@ Host macair
     Compression yes
     PasswordAuthentication no
     ProxyCommand ssh -q -W %h:%p vpsfree
+
 Host sh.nas 
     Hostname nas.pdostal.sh.cvut.cz
     User fanatik  
@@ -83,3 +84,12 @@ Host sh.nas
     KeepAlive yes
     Compression yes
     PasswordAuthentication no 
+
+Host pustik 
+    Hostname 192.168.2.115 
+    User pi  
+    Port 22
+    KeepAlive yes
+    Compression yes
+    PasswordAuthentication no 
+    ProxyCommand ssh -q -W %h:%p vpsfree
